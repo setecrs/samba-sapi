@@ -1,6 +1,6 @@
 FROM fedora:31
 
-RUN dnf --disablerepo=\* --enablerepo=fedora install -y samba smbldap-tools \
+RUN dnf --disablerepo=\* --enablerepo=fedora install -y samba smbldap-tools sssd-ldap \
  && dnf clean all
 
 ENV LANG=en_US.UTF-8
