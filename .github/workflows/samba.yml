@@ -4,7 +4,7 @@ on: ['push']
 
 env:
   REPO: setecrs/samba
-  FOLDER: samba
+  FOLDER: .
   VERSION: ${GITHUB_REF#refs/tags/}
 
 jobs:
