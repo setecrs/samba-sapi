@@ -13,7 +13,7 @@ cat > /etc/samba/smb.conf <<EOF
         ntlm auth = Yes
         client lanman auth = No
         client plaintext auth = No
-        log level = 1
+        log level = 2
         log file = /var/log/samba/%U.log
         unix extensions = No
         load printers = No
@@ -39,18 +39,16 @@ cat > /etc/samba/smb.conf <<EOF
         wide links = yes
         hide unreadable = yes
         veto files = /desktop.ini/
-        socket options = TCP_NODELAY IPTOS_LOWDELAY SO_KEEPALIVE 
-        fake oplocks = yes
-        dead time = 2
-        keepalive = 10
+        dead time = 15
 
 [homes]
+        valid users = @"Domain Admins"
+	read only = no
         comment = Home Directories
         path = /home/%u/Desktop/
         create mask = 0755
         directory mask = 0755
         browseable = No
-        locking = no
 EOF
 
 cat > /etc/smbldap-tools/smbldap.conf <<EOF
@@ -169,6 +167,6 @@ do
 done
 
 # different passwords on purpose, so we don't change the root password
-(echo 1; echo 2) | smbldap-populate
+#(echo 1; echo 2) | smbldap-populate
 
 exec "$@"
