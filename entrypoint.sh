@@ -37,17 +37,17 @@ cat > /etc/samba/smb.conf <<EOF
         ldap ssl = off
         template homedir = /home/%U
         wide links = yes
-        hide unreadable = yes
+        hide unreadable = no
         veto files = /desktop.ini/
         dead time = 15
 
 [homes]
         valid users = @"Domain Admins"
-	read only = no
+        read only = no
         comment = Home Directories
         path = /home/%u/Desktop/
-        create mask = 0755
-        directory mask = 0755
+        create mask = 0775
+        directory mask = 0775
         browseable = No
 EOF
 
