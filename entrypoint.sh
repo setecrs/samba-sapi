@@ -42,7 +42,7 @@ cat > /etc/samba/smb.conf <<EOF
         dead time = 15
 
 [homes]
-        valid users = @"Domain Admins"
+        valid users = @celulares
         read only = no
         comment = Home Directories
         path = /home/%u/Desktop/
