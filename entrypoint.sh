@@ -46,8 +46,8 @@ cat > /etc/samba/smb.conf <<EOF
         read only = no
         comment = Home Directories
         path = /home/%u/Desktop/
-        create mask = 0775
-        directory mask = 0775
+        create mask = 0777
+        directory mask = 0777
         browseable = No
 EOF
 
