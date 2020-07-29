@@ -4,6 +4,7 @@
 : ${LDAP_BASE_DN?-LDAP_BASE_DN not set}
 : ${LDAP_SERVER?-LDAP_SERVER not set}
 : ${WORKGROUP?-WORKGROUP not set}
+: ${READ_ONLY?-READ_ONLY not set}
 
 cat > /etc/samba/smb.conf <<EOF
 [global]
@@ -43,7 +44,7 @@ cat > /etc/samba/smb.conf <<EOF
 
 [homes]
         valid users = @celulares
-        read only = no
+        read only = ${READ_ONLY}
         comment = Home Directories
         path = /home/%u/Desktop/
         create mask = 0777
