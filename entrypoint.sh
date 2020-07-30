@@ -43,8 +43,6 @@ cat > /etc/samba/smb.conf <<EOF
         ldap ssl = off
         template homedir = /home/%U
         wide links = yes
-        hide unreadable = no
-        veto files = /desktop.ini/
         dead time = 15
 
 [homes]
