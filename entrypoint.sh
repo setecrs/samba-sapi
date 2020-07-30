@@ -5,6 +5,10 @@
 : ${LDAP_SERVER?-LDAP_SERVER not set}
 : ${WORKGROUP?-WORKGROUP not set}
 : ${READ_ONLY?-READ_ONLY not set}
+if [ "${VALID_USERS}" != "" ]
+then
+  LINE_VALID_USERS="valid users = ${VALID_USERS}"
+fi
 
 cat > /etc/samba/smb.conf <<EOF
 [global]
@@ -43,13 +47,13 @@ cat > /etc/samba/smb.conf <<EOF
         dead time = 15
 
 [homes]
-        valid users = @celulares
         read only = ${READ_ONLY}
         comment = Home Directories
         path = /home/%u/Desktop/
         create mask = 0777
         directory mask = 0777
         browseable = No
+        ${LINE_VALID_USERS}
 EOF
 
 cat > /etc/smbldap-tools/smbldap.conf <<EOF
