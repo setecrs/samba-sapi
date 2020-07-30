@@ -5,6 +5,7 @@
 : ${LDAP_SERVER?-LDAP_SERVER not set}
 : ${WORKGROUP?-WORKGROUP not set}
 : ${READ_ONLY?-READ_ONLY not set}
+HIDE_UNREADABLE=${HIDE_UNREADABLE:-no}
 if [ "${VALID_USERS}" != "" ]
 then
   LINE_VALID_USERS="valid users = ${VALID_USERS}"
@@ -53,6 +54,7 @@ cat > /etc/samba/smb.conf <<EOF
         create mask = 0777
         directory mask = 0777
         browseable = No
+        hide unreadable = ${HIDE_UNREADABLE}
         ${LINE_VALID_USERS}
 EOF
 
