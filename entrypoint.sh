@@ -45,10 +45,9 @@ cat > /etc/samba/smb.conf <<EOF
         wide links = yes
         dead time = 15
 
-[homes]
+[sapi]
         read only = ${READ_ONLY}
-        comment = Home Directories
-        path = /home/%u/Desktop/
+        path = /operacoes/sapi/
         create mask = 0777
         directory mask = 0777
         browseable = No

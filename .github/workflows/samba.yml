@@ -1,9 +1,9 @@
-name: samba_ci-cd
+name: samba-sapi_ci-cd
 
 on: ['push']
 
 env:
-  REPO: setecrs/samba
+  REPO: setecrs/samba-sapi
   FOLDER: .
   VERSION: ${GITHUB_REF#refs/tags/}
 
