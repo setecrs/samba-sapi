@@ -49,7 +49,9 @@ cat > /etc/samba/smb.conf <<EOF
         read only = ${READ_ONLY}
         path = /operacoes/sapi/
         create mask = 0777
+        force create mode = 0777
         directory mask = 0777
+        force directory mode = 0777
         browseable = No
         hide unreadable = ${HIDE_UNREADABLE}
         ${LINE_VALID_USERS}
